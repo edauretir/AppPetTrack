@@ -21,8 +21,8 @@ namespace AppPetTrack.SERVICE.Concretes
         }
         public void Add(string name, PetSpecies species, string breed, DateTime birtDate, string vaccieInformation, double weight)
         {
-            if (ValidationHelper.IsDefault(name) || ValidationHelper.IsDefault(species) || ValidationHelper.IsDefault(breed) || ValidationHelper.IsDefault(birtDate) || ValidationHelper.IsDefault(vaccieInformation) || ValidationHelper.IsDefault(weight)) 
-            throw new ValidationException("Name, Species, Breed, BirthDate, VaccineInformation, Weight", "Verilen alanlardan biri boş veya geçersiz!");
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(species.ToString()) || string.IsNullOrEmpty(breed) || string.IsNullOrEmpty(birtDate.ToString()) || string.IsNullOrEmpty(vaccieInformation) || string.IsNullOrEmpty(weight.ToString()))
+                throw new ValidationException("Name, Species, Breed, BirthDate, VaccineInformation, Weight", "Verilen alanlardan biri boş veya geçersiz!");
 
             _repo.Pets.Create(new Pet(name, species, breed, birtDate, vaccieInformation, weight));
 
@@ -71,6 +71,9 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Update(int id, string name, PetSpecies species, string breed, DateTime birtDate, string vaccieInformation, double weight)
         {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(species.ToString()) || string.IsNullOrEmpty(breed) || string.IsNullOrEmpty(birtDate.ToString()) || string.IsNullOrEmpty(vaccieInformation) || string.IsNullOrEmpty(weight.ToString()))
+                throw new ValidationException("Name, Species, Breed, BirthDate, VaccineInformation, Weight", "Verilen alanlardan biri boş veya geçersiz!");
+
             var pet = _repo.Pets.GetById(id);
 
             pet.Name = name;

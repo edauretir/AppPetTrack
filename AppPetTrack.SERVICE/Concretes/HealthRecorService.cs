@@ -17,7 +17,7 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Add(HealthType healtyType, string description, DateTime recordDate)
         {
-            if (ValidationHelper.IsDefault(healtyType) || ValidationHelper.IsDefault(description) || ValidationHelper.IsDefault(recordDate))
+            if (string.IsNullOrEmpty(healtyType.ToString()) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(recordDate.ToString()))
                 throw new ValidationException("HealthType, Description, RecordDate", "Verilen alanlardan biri boş veya geçersiz!");
 
             _repo.HealthRecords.Create(new HealthRecord(healtyType, description, recordDate));
@@ -66,6 +66,9 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Update(int id, HealthType healtyType, string description, DateTime recordDate)
         {
+            if (string.IsNullOrEmpty(healtyType.ToString()) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(recordDate.ToString()))
+                throw new ValidationException("HealthType, Description, RecordDate", "Verilen alanlardan biri boş veya geçersiz!");
+
             var healthRecord = _repo.HealthRecords.GetById(id);
 
             healthRecord.HealthType = healtyType;

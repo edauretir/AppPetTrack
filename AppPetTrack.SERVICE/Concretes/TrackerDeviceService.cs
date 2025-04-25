@@ -2,11 +2,6 @@
 using AppPetTrack.CORE.Models;
 using AppPetTrack.REPO.UnitOfWork;
 using AppPetTrack.SERVICE.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppPetTrack.SERVICE.Concretes
 {
@@ -21,7 +16,7 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Add(DateTime loggedAt, string location)
         {
-            if (ValidationHelper.IsDefault(loggedAt) || ValidationHelper.IsDefault(location))
+            if (string.IsNullOrEmpty(loggedAt.ToString()) || string.IsNullOrEmpty(location))
                 throw new ValidationException("LoggetAt, Location", "Verilen alanlardan biri boş veya geçersiz!");
 
             _repo.TrackerDevices.Create(new TrackerDevice(loggedAt, location));
@@ -74,6 +69,9 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Update(int id, DateTime loggedAt, string location)
         {
+            if (string.IsNullOrEmpty(loggedAt.ToString()) || string.IsNullOrEmpty(location))
+                throw new ValidationException("LoggetAt, Location", "Verilen alanlardan biri boş veya geçersiz!");
+
             var trackerDevice = _repo.TrackerDevices.GetById(id);
 
             trackerDevice.LoggedAt = loggedAt;

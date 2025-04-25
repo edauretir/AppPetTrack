@@ -1,4 +1,5 @@
-﻿using AppPetTrack.CORE.Helper;
+﻿using AppPetTrack.CORE.Enums;
+using AppPetTrack.CORE.Helper;
 using AppPetTrack.CORE.Models;
 using AppPetTrack.REPO.UnitOfWork;
 using AppPetTrack.SERVICE.Exceptions;
@@ -15,8 +16,8 @@ namespace AppPetTrack.SERVICE.Concretes
         }
         public void Add(string firstName, string lastName, string phoneNumber, string address, string email)
         {
-            if (ValidationHelper.IsDefault(firstName) || ValidationHelper.IsDefault(lastName) || ValidationHelper.IsDefault(phoneNumber) || ValidationHelper.IsDefault(address) || ValidationHelper.IsDefault(email))
-                throw new ValidationException("FirstName, LastName, PhoneNumber, Address, Email", "Verilen alanlardan biri boş veya geçersiz!");
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(address) ||string.IsNullOrEmpty(email))
+                throw new ValidationException("FirstName, LastName, PhoneNumber, Address, Email", "Verilen alanlardan biri boş veya geçersiz!"); 
 
             _repo.PetOwners.Create(new PetOwner(firstName, lastName, phoneNumber, address, email));
 
@@ -64,6 +65,9 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Update(int id, string firstName, string lastName, string phoneNumber, string address, string email)
         {
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(email))
+                throw new ValidationException("FirstName, LastName, PhoneNumber, Address, Email", "Verilen alanlardan biri boş veya geçersiz!");
+
             var petOwner = _repo.PetOwners.GetById(id);
 
             petOwner.FirstName = firstName;

@@ -13,6 +13,7 @@ namespace AppPetTrack.CORE.Enums
         Bird,
         Hamster,
         Rabbit,
+        NinjaTurtleDonetello,
         Other
     }
 }

@@ -20,42 +20,44 @@ namespace AppPetTrack.CORE.Helper
             return value;
         }
 
-        public static bool IsDefault<T>(T value)//Boş değer kontrolü yapar.
-        {
-            if (value == null)
-                return true;
+        //public static bool IsDefault<T>(T value)//Boş değer kontrolü yapar.
+        //{
+        //    if (value == null)
+        //        return true;
 
-            if (value is string str && string.IsNullOrWhiteSpace(str))
-                return true;
+        //    if (value is string str && string.IsNullOrWhiteSpace(str))
+        //        return true;
 
-            return EqualityComparer<T>.Default.Equals(value, default(T));
-        }
+        //    return EqualityComparer<T>.Default.Equals(value, default(T));
+        //}
 
-        public static void ValidateProperties<T>(T obj)
-        {
-            if (obj == null)
-                throw new ArgumentNullException(nameof(obj), "Obje null olamaz");
+        //public static void ValidateProperties<T>(T obj)
+        //{
+        //    if (obj == null)
+        //        throw new ArgumentNullException(nameof(obj), "Obje null olamaz");
 
-            var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        //    var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
 
-            foreach ( var prop in props)
-            {
-                var value = prop.GetValue(obj);
+        //    foreach ( var prop in props)
+        //    {
+        //        var value = prop.GetValue(obj);
                   
-                if(prop.PropertyType == typeof(string))
-                {
-                    if (string.IsNullOrWhiteSpace(value as string))
-                        throw new ValidationException(prop.Name, $"{prop.Name} boş olamaz!");
-                }
-                else if (prop.PropertyType.IsValueType)
-                {
-                    var defaultValue = Activator.CreateInstance(prop.PropertyType);
-                    if (value?.Equals(defaultValue) == true)
-                        throw new ValidationException(prop.Name, $"{prop.Name} geçersiz değerde!");
-                }
-            }
-        }
+        //        if(prop.PropertyType == typeof(string))
+        //        {
+        //            if (string.IsNullOrWhiteSpace(value as string))
+        //                throw new ValidationException(prop.Name, $"{prop.Name} boş olamaz!");
+        //        }
+        //        else if (prop.PropertyType.IsValueType)
+        //        {
+        //            var defaultValue = Activator.CreateInstance(prop.PropertyType);
+        //            if (value?.Equals(defaultValue) == true)
+        //                throw new ValidationException(prop.Name, $"{prop.Name} geçersiz değerde!");
+        //        }
+        //    }
+        //}
+
+
 
 
     }

@@ -1,6 +1,9 @@
-﻿using AppPetTrack.CORE.Models;
+﻿using AppPetTrack.CORE.Helper;
+using AppPetTrack.CORE.Models;
 using AppPetTrack.REPO.UnitOfWork;
 using AppPetTrack.SERVICE.Exceptions;
+using Microsoft.IdentityModel.Tokens;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppPetTrack.SERVICE.Concretes
 {
@@ -16,8 +19,9 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Add(DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime)
         {
-            if (activityDate == default || dailyWalkTime == default || dailyRunTime == default || dailySleepTime == default)
+            if(string.IsNullOrEmpty(activityDate.ToString()) || string.IsNullOrEmpty(dailyWalkTime.ToString()) || string.IsNullOrEmpty(dailyRunTime.ToString()) || string.IsNullOrEmpty(dailySleepTime.ToString()))
                 throw new ValidationException("ActivityDate, DailyWalkTime, DailyRunTime, DailySleepTime", "Verilen alanlardan biri boş veya geçersiz!");
+
             _repo.ActivityLogs.Create(new ActivityLog(activityDate, dailyWalkTime, dailyRunTime, dailySleepTime));
 
             if (!_repo.Save())
@@ -67,6 +71,9 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Update(int id, DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime)
         {
+            if (string.IsNullOrEmpty(activityDate.ToString()) || string.IsNullOrEmpty(dailyWalkTime.ToString()) || string.IsNullOrEmpty(dailyRunTime.ToString()) || string.IsNullOrEmpty(dailySleepTime.ToString()))
+                throw new ValidationException("ActivityDate, DailyWalkTime, DailyRunTime, DailySleepTime", "Verilen alanlardan biri boş veya geçersiz!");
+
             var activityLog = _repo.ActivityLogs.GetById(id);
 
             activityLog.ActivityDate = activityDate;

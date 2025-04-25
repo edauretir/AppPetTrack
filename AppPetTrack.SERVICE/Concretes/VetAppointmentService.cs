@@ -16,7 +16,7 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Add(string clinicName, string veterinarianName, DateTime appointmentDate)
         {
-            if (ValidationHelper.IsDefault(clinicName) || ValidationHelper.IsDefault(veterinarianName) || ValidationHelper.IsDefault(appointmentDate))
+            if (string.IsNullOrEmpty(clinicName) || string.IsNullOrEmpty(veterinarianName) || string.IsNullOrEmpty(appointmentDate.ToString()))
                 throw new ValidationException("Clinic Name, Veterininan Name, Appointment Date", "Verilen alanlardan biri boş veya geçersiz!");
 
             _repo.VetAppointments.Create(new VetAppointment(clinicName, veterinarianName, appointmentDate));
@@ -69,6 +69,9 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public void Update(int id, string clinicName, string veterinarianName, DateTime appointmentDate)
         {
+            if (string.IsNullOrEmpty(clinicName) || string.IsNullOrEmpty(veterinarianName) || string.IsNullOrEmpty(appointmentDate.ToString()))
+                throw new ValidationException("Clinic Name, Veterininan Name, Appointment Date", "Verilen alanlardan biri boş veya geçersiz!");
+
             var vetAppointment = _repo.VetAppointments.GetById(id);
 
             vetAppointment.ClinicName = clinicName;

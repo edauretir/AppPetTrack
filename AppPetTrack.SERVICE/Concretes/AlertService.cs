@@ -15,10 +15,9 @@ namespace AppPetTrack.SERVICE.Contracts
         }
         public void Add(double bodyTempature, TimeSpan inactivity, string escape, double weight)
         {
-            if (bodyTempature == null || inactivity == null || string.IsNullOrEmpty(escape) || weight == null)
-            {
+            if (string.IsNullOrEmpty(bodyTempature.ToString()) || string.IsNullOrEmpty(inactivity.ToString()) || string.IsNullOrEmpty(escape) || string.IsNullOrEmpty(weight.ToString()))
                 throw new ValidationException("BodyTempature, Inactivity , Escape, Weight", "Verilen alanlardan biri boş veya geçersiz!");
-            }
+
                 _repo.Alerts.Create(new Alert { BodyTempature = bodyTempature, Inactivity = inactivity, Escape = escape, Weight = weight });
 
             if (!_repo.Save())
@@ -63,6 +62,9 @@ namespace AppPetTrack.SERVICE.Contracts
 
         public void Update(int id, double bodyTempature, TimeSpan inactivity, string escape, double weight)
         {
+            if (string.IsNullOrEmpty(bodyTempature.ToString()) || string.IsNullOrEmpty(inactivity.ToString()) || string.IsNullOrEmpty(escape) || string.IsNullOrEmpty(weight.ToString()))
+                throw new ValidationException("BodyTempature, Inactivity , Escape, Weight", "Verilen alanlardan biri boş veya geçersiz!");
+
             var alert = _repo.Alerts.GetById(id);
 
             alert.BodyTempature = bodyTempature;
