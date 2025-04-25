@@ -1,9 +1,6 @@
-﻿using AppPetTrack.CORE.Helper;
-using AppPetTrack.CORE.Models;
+﻿using AppPetTrack.CORE.Models;
 using AppPetTrack.REPO.UnitOfWork;
 using AppPetTrack.SERVICE.Exceptions;
-using Microsoft.IdentityModel.Tokens;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppPetTrack.SERVICE.Concretes
 {

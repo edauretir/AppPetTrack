@@ -31,5 +31,9 @@ namespace AppPetTrack.CORE.Models
         public int PetId { get; set; }
         public virtual Pet Pet { get; set; }
 
+        public override string ToString()
+        {
+            return $"Id: {Id} - Tarih: {LoggedAt} - Konum: {Location}";
+        }
     }
 }

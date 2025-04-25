@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppPetTrack.SERVICE\AppPetTrack.SERVICE.csproj" />
+  </ItemGroup>
+
 </Project>

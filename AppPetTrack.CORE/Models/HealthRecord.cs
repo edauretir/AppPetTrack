@@ -38,6 +38,11 @@ namespace AppPetTrack.CORE.Models
 
         //Navigation Propertires
         public int PetId { get; set; }
-        public virtual Pet Pet { get; set; } //Bir sağlık kaydı bir g-hayvana ait olabilir.
+        public virtual Pet Pet { get; set; } //Bir sağlık kaydı bir hayvana ait olabilir.
+
+        public override string ToString()
+        {
+            return $"Id: {Id} Kayıt Tarihi {RecordDate} - Sağlık Türü: {HealthType} - Açıklama: {Description}";
+        }
     }
 }

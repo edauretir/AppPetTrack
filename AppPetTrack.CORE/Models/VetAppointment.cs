@@ -43,5 +43,10 @@ namespace AppPetTrack.CORE.Models
         //Navigation Properties
         public int PetId { get; set; }
         public virtual Pet Pet { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id} - Klinik Adı: {ClinicName} - Veteriner Adı:{VeterinarianName} - Randevu Tarihi: {AppointmentDate}";
+        }
     }
 }

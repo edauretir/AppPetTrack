@@ -61,5 +61,10 @@ namespace AppPetTrack.CORE.Models
 
         //Navigation Properties
         public virtual ICollection<Pet> Pets { get; set; } = new List<Pet>();
+
+        public override string ToString()
+        {
+            return $"Id: {Id} - Ad: {FirstName} - Soyad: {LastName} - Telefon Numarası: {PhoneNumber} - Adres: {Address} -Email: {Email}";
+        }
     }
 }

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AppPetTrack.CORE.Models;
-using AppPetTrack.REPO.Concretes;
+﻿using AppPetTrack.REPO.Concretes;
 using AppPetTrack.REPO.Context;
 using AppPetTrack.REPO.Contract;
 
 namespace AppPetTrack.REPO.UnitOfWork
 {
-    public class ManagerRepo
+    public class ManagerRepo : IManagerRepo
     {
         private readonly AppPetTrackDbContext _context;
         private readonly Lazy<IActivityLogRepo> _activityLogRepo;
@@ -40,6 +34,8 @@ namespace AppPetTrack.REPO.UnitOfWork
         public IPetRepo Pets => _petRepo.Value;
         public ITrackerDeviceRepo TrackerDevicers => _trackerRepo.Value;
         public IVetAppointmentRepo VetAppointments => _vetAppointmentRepo.Value;
+
+        public ITrackerDeviceRepo TrackerDevices => throw new NotImplementedException();
 
         public bool Save()
         {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
+VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPetTrack.CORE", "AppPetTrack.CORE\AppPetTrack.CORE.csproj", "{01342AE5-3791-446A-BACD-9A2FB42F5A9D}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPetTrack.REPO", "AppPetT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPetTrack.SERVICE", "AppPetTrack.SERVICE\AppPetTrack.SERVICE.csproj", "{617F244F-EEF6-4C1E-9BCA-FB55C5905414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPetTrack.UI", "AppPetTrack.UI\AppPetTrack.UI.csproj", "{7B621B42-35F9-4B0B-9AAC-FDCD1829FA73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPetTrack.UI", "AppPetTrack.UI\AppPetTrack.UI.csproj", "{AF60EF17-5E10-4ADD-B155-E83F8CDA798B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{617F244F-EEF6-4C1E-9BCA-FB55C5905414}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617F244F-EEF6-4C1E-9BCA-FB55C5905414}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617F244F-EEF6-4C1E-9BCA-FB55C5905414}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B621B42-35F9-4B0B-9AAC-FDCD1829FA73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B621B42-35F9-4B0B-9AAC-FDCD1829FA73}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B621B42-35F9-4B0B-9AAC-FDCD1829FA73}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B621B42-35F9-4B0B-9AAC-FDCD1829FA73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF60EF17-5E10-4ADD-B155-E83F8CDA798B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF60EF17-5E10-4ADD-B155-E83F8CDA798B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF60EF17-5E10-4ADD-B155-E83F8CDA798B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF60EF17-5E10-4ADD-B155-E83F8CDA798B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

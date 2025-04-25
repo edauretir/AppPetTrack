@@ -45,5 +45,10 @@ namespace AppPetTrack.CORE.Models
         //Navigation Properties
         public int TrackerDeviceId { get; set; }
         public TrackerDevice TrackerDevice { get; set; } //Bir aktivite kaydı bir takip cihazına bağlı olabilir.
+
+        public override string ToString()
+        {
+            return $"Id {Id} - Aktivite Tarihi: {ActivityDate} - Günlük Yürüyüş Süresi: {DailyWalkTime}  - Günlük Koşu Süresi: {DailyRunTime} - Günlük Uyku Süresi: {DailySleepTime}";
+        }
     }
 }

@@ -45,5 +45,10 @@ namespace AppPetTrack.CORE.Models
 
         public int PetId { get; set; }
         public virtual Pet Pet { get; set; }//Bir uyarı sadece 1 hayvana ait olabilir.
+
+        public override string ToString()
+        {
+            return $"Id: {Id} - Vücut Isısı: {BodyTempature} - Hareketsizlik Süresi: {Inactivity} - Kaçtı Mı: {Escape} - Kilosu: {Weight}";
+        }
     }
 }

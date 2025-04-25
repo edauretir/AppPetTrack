@@ -76,5 +76,9 @@ namespace AppPetTrack.CORE.Models
         public virtual ICollection<HealthRecord> HealthRecords { get; set; } = new List<HealthRecord>();//Bir hayvanın birden fazla sahibi olabilir.
         public virtual ICollection<VetAppointment> VetAppointment { get; set; } = new List<VetAppointment>();//Birden fazla veteriner ziyareti
 
+        public override string ToString()
+        {
+            return $"Id: {Id} - İsmi: {Name} - Türü: {Species} - Cinsi: {Breed} - Doğum Tarihi: {BirthDate} - Kilosu: {Weight} - Aşı Bilgisi: {VaccineInformation}";
+        }
     }
 }

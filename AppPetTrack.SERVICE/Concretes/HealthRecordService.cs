@@ -6,11 +6,11 @@ using AppPetTrack.SERVICE.Exceptions;
 
 namespace AppPetTrack.SERVICE.Concretes
 {
-    public class HealthRecorService : IHealthRecordService
+    public class HealthRecordService : IHealthRecordService
     {
         private readonly IManagerRepo _repo;
 
-        public HealthRecorService(IManagerRepo repo)
+        public HealthRecordService(IManagerRepo repo)
         {
             _repo = repo;
         }
