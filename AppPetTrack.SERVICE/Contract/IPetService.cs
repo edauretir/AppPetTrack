@@ -5,7 +5,7 @@ namespace AppPetTrack.SERVICE.Concretes
 {
     public interface IPetService
     {
-        void Add(string name, PetSpecies species, string breed, DateTime birtDate, string vaccieInformation, double weight );
+        void Add(int petOwnerId, string name, PetSpecies species, string breed, DateTime birtDate, string vaccieInformation, double weight );
         void Update(int id, string name, PetSpecies species, string breed, DateTime birtDate, string vaccieInformation, double weight);
         void Delete(int id);
         void SoftDelete(int id);

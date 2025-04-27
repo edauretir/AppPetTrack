@@ -15,12 +15,12 @@ namespace AppPetTrack.SERVICE.Concretes
             _repo = repo;
         }
 
-        public void Add(HealthType healtyType, string description, DateTime recordDate)
+        public void Add(int petId, HealthType healtyType, string description, DateTime recordDate)
         {
             if (string.IsNullOrEmpty(healtyType.ToString()) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(recordDate.ToString()))
                 throw new ValidationException("HealthType, Description, RecordDate", "Verilen alanlardan biri boş veya geçersiz!");
 
-            _repo.HealthRecords.Create(new HealthRecord(healtyType, description, recordDate));
+            _repo.HealthRecords.Create(new HealthRecord(petId, healtyType, description, recordDate));
 
             if (!_repo.Save())
                 throw new Exception("Health Record kayıt edilemedi.");

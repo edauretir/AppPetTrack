@@ -11,8 +11,9 @@ namespace AppPetTrack.CORE.Models
 
         public HealthRecord() { }
 
-        public HealthRecord(HealthType healthType, string description, DateTime recordDate)
+        public HealthRecord(int petID,HealthType healthType, string description, DateTime recordDate)
         {
+            PetId = petID;
             HealthType = healthType;
             Description = description;
             RecordDate = recordDate;

@@ -16,7 +16,7 @@ namespace AppPetTrack.REPO.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data source =.; Initial catalog = PetTrack;integrated security=true;trust server certificate=true");
+            optionsBuilder.UseSqlServer("Data source =DESKTOP-E4IFSAH\\SQLEXPRESS; Initial catalog = PetTrack;integrated security=true;trust server certificate=true");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

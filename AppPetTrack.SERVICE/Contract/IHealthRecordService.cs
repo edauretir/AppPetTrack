@@ -5,8 +5,8 @@ namespace AppPetTrack.SERVICE.Concretes
 {
     public interface IHealthRecordService
     {
-        void Add(HealthType healtyType, string description, DateTime recordDate);
-        void Update(int id, HealthType healtyType, string description, DateTime recordDate);
+        void Add(int petId,HealthType healtyType, string description, DateTime recordDate);
+        void Update(int petId, HealthType healtyType, string description, DateTime recordDate);
         void Delete(int id);
         void SoftDelete(int id);
         HealthRecord Get(int id);

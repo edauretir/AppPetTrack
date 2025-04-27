@@ -14,15 +14,24 @@ namespace AppPetTrack.SERVICE.Concretes
         {
             _repo = repo;
         }
-        public void Add(string firstName, string lastName, string phoneNumber, string address, string email)
+        public void Add(string userName,string password,string firstName, string lastName, string phoneNumber, string address, string email)
         {
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(address) ||string.IsNullOrEmpty(email))
-                throw new ValidationException("FirstName, LastName, PhoneNumber, Address, Email", "Verilen alanlardan biri boş veya geçersiz!"); 
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(email))
+                throw new ValidationException("FirstName, LastName, PhoneNumber, Address, Email", "Verilen alanlardan biri boş veya geçersiz!");
 
-            _repo.PetOwners.Create(new PetOwner(firstName, lastName, phoneNumber, address, email));
+            _repo.PetOwners.Create(new PetOwner(password, userName,firstName, lastName, phoneNumber, address, email));
 
-            if(!_repo.Save())
+            if (!_repo.Save())
                 throw new Exception("Pet Owner kayıt edilemedi.");
+        }
+
+        public bool CheckAccount(string userName, string password)
+        {
+            var petOwner = _repo.PetOwners.GetByCondition(x => x.UserName == userName && x.Password == password).FirstOrDefault();
+            int id = petOwner.Id;
+            if (petOwner is null)
+                throw new NotFoundException("Pet Owner", id);
+            return true;
         }
 
         public void Delete(int id)
@@ -51,6 +60,15 @@ namespace AppPetTrack.SERVICE.Concretes
 
         public IEnumerable<PetOwner> GetByName(string name) => _repo.PetOwners.GetByCondition(x => x.FirstName.Contains(name)).ToList();
 
+        public PetOwner GetByUserName(string userName)
+        {
+            var petOwner = _repo.PetOwners.GetByCondition(x => x.UserName == userName).FirstOrDefault();
+            int id = petOwner.Id;
+            if (petOwner is null)
+                throw new NotFoundException("Pet Owner", id);
+            return petOwner;
+        }
+
         public void SoftDelete(int id)
         {
             var petOwner = _repo.PetOwners.GetById(id);
@@ -59,7 +77,7 @@ namespace AppPetTrack.SERVICE.Concretes
 
             _repo.PetOwners.Delete(petOwner);
 
-            if (!_repo.Save()) 
+            if (!_repo.Save())
                 throw new Exception("Pet Owner sof delete edilemedi!");
         }
 

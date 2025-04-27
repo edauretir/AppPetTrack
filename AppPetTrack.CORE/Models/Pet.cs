@@ -15,7 +15,7 @@ namespace AppPetTrack.CORE.Models
 
         public Pet() { }
 
-        public Pet(string name, PetSpecies species, string breed, DateTime birthDate, string vaccineInformation, double weight)
+        public Pet(int petOwnerId,string name, PetSpecies species, string breed, DateTime birthDate, string vaccineInformation, double weight)
         {
             Name = name;
             Species = species;
@@ -23,6 +23,7 @@ namespace AppPetTrack.CORE.Models
             BirthDate = birthDate;
             VaccineInformation = vaccineInformation;
             Weight = weight;
+            PetOwnerId = petOwnerId;
         }
 
         public double Weight

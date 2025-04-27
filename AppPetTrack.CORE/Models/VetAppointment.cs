@@ -10,8 +10,9 @@ namespace AppPetTrack.CORE.Models
         private DateTime _appointmentDate;
         public VetAppointment() { }
 
-        public VetAppointment(string clinicName, string veterinarianName, DateTime appointmentDate)
+        public VetAppointment(int petId,string clinicName, string veterinarianName, DateTime appointmentDate)
         {
+            PetId = petId;
             ClinicName = clinicName;
             VeterinarianName = veterinarianName;
             AppointmentDate = appointmentDate;

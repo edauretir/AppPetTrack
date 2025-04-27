@@ -13,12 +13,12 @@ namespace AppPetTrack.SERVICE.Contracts
         {
             _repo = repo;
         }
-        public void Add(double bodyTempature, TimeSpan inactivity, string escape, double weight)
+        public void Add(int petId, double bodyTempature, TimeSpan inactivity, string escape, double weight)
         {
             if (string.IsNullOrEmpty(bodyTempature.ToString()) || string.IsNullOrEmpty(inactivity.ToString()) || string.IsNullOrEmpty(escape) || string.IsNullOrEmpty(weight.ToString()))
                 throw new ValidationException("BodyTempature, Inactivity , Escape, Weight", "Verilen alanlardan biri boş veya geçersiz!");
 
-                _repo.Alerts.Create(new Alert { BodyTempature = bodyTempature, Inactivity = inactivity, Escape = escape, Weight = weight });
+                _repo.Alerts.Create(new Alert {PetId = petId, BodyTempature = bodyTempature, Inactivity = inactivity, Escape = escape, Weight = weight });
 
             if (!_repo.Save())
                 throw new Exception("Alert kayıt edilemedi!");

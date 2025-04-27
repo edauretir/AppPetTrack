@@ -12,8 +12,9 @@ namespace AppPetTrack.CORE.Models
 
         public Alert() { }
 
-        public Alert(double bodyTemature, TimeSpan inactivity, string escape, double weight)
+        public Alert(int petId,double bodyTemature, TimeSpan inactivity, string escape, double weight)
         {
+            PetId = petId;
             BodyTempature = bodyTemature;
             Inactivity = inactivity;
             Escape = escape;

@@ -10,17 +10,36 @@ namespace AppPetTrack.CORE.Models
         private string _phoneNumber;
         private string _address;
         private string _email;
+        private string _userName;
+        private string _password;
 
         public PetOwner() { }
 
-        public PetOwner(string firstName, string lastName, string phoneNumber, string address, string email)
+        public PetOwner( string userName, string password ,string firstName, string lastName, string phoneNumber, string address, string email)
         {
             FirstName = firstName;
             LastName = lastName;
             PhoneNumber = phoneNumber;
             Address = address;
             Email = email;
+            UserName = userName;
+            Password = password;
         }
+        
+
+        public string Password
+        {
+            get { return _password; }
+            set { _password = ValidationHelper.SetData(value); }
+        }
+
+
+        public string UserName
+        {
+            get { return _userName; }
+            set { _userName = ValidationHelper.SetData(value); }
+        }
+
 
         public string Email
         {

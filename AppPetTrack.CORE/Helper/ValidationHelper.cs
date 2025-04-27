@@ -1,6 +1,4 @@
-﻿using AppPetTrack.SERVICE.Exceptions;
-using System.Reflection;
-
+﻿
 namespace AppPetTrack.CORE.Helper
 {
     public class ValidationHelper

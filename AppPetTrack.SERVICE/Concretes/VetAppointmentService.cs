@@ -14,12 +14,12 @@ namespace AppPetTrack.SERVICE.Concretes
             _repo = repo;
         }
 
-        public void Add(string clinicName, string veterinarianName, DateTime appointmentDate)
+        public void Add(int petId, string clinicName, string veterinarianName, DateTime appointmentDate)
         {
-            if (string.IsNullOrEmpty(clinicName) || string.IsNullOrEmpty(veterinarianName) || string.IsNullOrEmpty(appointmentDate.ToString()))
-                throw new ValidationException("Clinic Name, Veterininan Name, Appointment Date", "Verilen alanlardan biri boş veya geçersiz!");
+            if (string.IsNullOrEmpty(petId.ToString())||string.IsNullOrEmpty(clinicName) || string.IsNullOrEmpty(veterinarianName) || string.IsNullOrEmpty(appointmentDate.ToString()))
+                throw new ValidationException("PetId,Clinic Name, Veterininan Name, Appointment Date", "Verilen alanlardan biri boş veya geçersiz!");
 
-            _repo.VetAppointments.Create(new VetAppointment(clinicName, veterinarianName, appointmentDate));
+            _repo.VetAppointments.Create(new VetAppointment(petId,clinicName, veterinarianName, appointmentDate));
 
             if (!_repo.Save())
                 throw new Exception("Vet Appointment kayıt edilemedi!");
@@ -67,7 +67,7 @@ namespace AppPetTrack.SERVICE.Concretes
                 throw new Exception("Vet Appointment soft delete edilemedi!");
         }
 
-        public void Update(int id, string clinicName, string veterinarianName, DateTime appointmentDate)
+        public void Update(int id,int petId, string clinicName, string veterinarianName, DateTime appointmentDate)
         {
             if (string.IsNullOrEmpty(clinicName) || string.IsNullOrEmpty(veterinarianName) || string.IsNullOrEmpty(appointmentDate.ToString()))
                 throw new ValidationException("Clinic Name, Veterininan Name, Appointment Date", "Verilen alanlardan biri boş veya geçersiz!");
