@@ -1,5 +1,4 @@
-﻿using AppPetTrack.CORE.Helper;
-using AppPetTrack.CORE.Models;
+﻿using AppPetTrack.CORE.Models;
 using AppPetTrack.REPO.UnitOfWork;
 using AppPetTrack.SERVICE.Exceptions;
 
@@ -14,12 +13,12 @@ namespace AppPetTrack.SERVICE.Concretes
             _repo = repo;
         }
 
-        public void Add(DateTime loggedAt, string location)
+        public void Add(int petId, DateTime loggedAt, string location)
         {
             if (string.IsNullOrEmpty(loggedAt.ToString()) || string.IsNullOrEmpty(location))
                 throw new ValidationException("LoggetAt, Location", "Verilen alanlardan biri boş veya geçersiz!");
 
-            _repo.TrackerDevices.Create(new TrackerDevice(loggedAt, location));
+            _repo.TrackerDevices.Create(new TrackerDevice(petId,loggedAt, location));
 
             if (!_repo.Save())
                 throw new Exception("Tracker Device kayır edilemedi!");

@@ -10,8 +10,8 @@ namespace AppPetTrack.REPO.Configs
     {
         public void Configure(EntityTypeBuilder<Pet> builder)
         {
-            builder.HasOne(p => p.Alert).WithOne(h => h.Pet).HasForeignKey<Pet>(x => x.Id);
-            builder.HasOne(p => p.TrackerDevice).WithOne(h => h.Pet).HasForeignKey<Pet>(x => x.Id);
+            //builder.HasOne(p => p.Alert).WithOne(h => h.Pet).HasForeignKey<Pet>(x => x.Id);
+            //builder.HasOne(p => p.TrackerDevice).WithOne(h => h.Pet).HasForeignKey<Pet>(x => x.Id);
         }
     }
 

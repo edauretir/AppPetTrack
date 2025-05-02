@@ -1,6 +1,4 @@
-﻿using AppPetTrack.CORE.Enums;
-using AppPetTrack.CORE.Helper;
-using AppPetTrack.CORE.Models;
+﻿using AppPetTrack.CORE.Models;
 using AppPetTrack.REPO.UnitOfWork;
 using AppPetTrack.SERVICE.Exceptions;
 
@@ -19,7 +17,7 @@ namespace AppPetTrack.SERVICE.Concretes
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(email))
                 throw new ValidationException("FirstName, LastName, PhoneNumber, Address, Email", "Verilen alanlardan biri boş veya geçersiz!");
 
-            _repo.PetOwners.Create(new PetOwner(password, userName,firstName, lastName, phoneNumber, address, email));
+            _repo.PetOwners.Create(new PetOwner(userName, password, firstName, lastName, phoneNumber, address, email));
 
             if (!_repo.Save())
                 throw new Exception("Pet Owner kayıt edilemedi.");

@@ -4,7 +4,7 @@ namespace AppPetTrack.SERVICE.Concretes
 {
     public interface ITrackerDeviceService
     {
-        void Add(DateTime loggedAt, string location);
+        void Add(int petId,DateTime loggedAt, string location);
         void Update(int id, DateTime loggedAt, string location);
         void Delete(int id);
         void SoftDelete(int id);

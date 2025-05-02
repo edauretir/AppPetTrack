@@ -4,7 +4,7 @@ namespace AppPetTrack.SERVICE.Concretes
 {
     public interface IActivityLogService
     {
-        void Add(DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime);
+        void Add(int trackerId,DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime);
         void Update(int id, DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime);
         void Delete(int id);
         void SoftDelete(int id);

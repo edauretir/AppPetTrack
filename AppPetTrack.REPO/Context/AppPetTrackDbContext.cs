@@ -16,7 +16,7 @@ namespace AppPetTrack.REPO.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data source =DESKTOP-E4IFSAH\\SQLEXPRESS; Initial catalog = PetTrack;integrated security=true;trust server certificate=true");
+            optionsBuilder.UseSqlServer("Data Source=EDA;Initial Catalog=MyPaw_1.2;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

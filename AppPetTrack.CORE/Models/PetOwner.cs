@@ -60,8 +60,6 @@ namespace AppPetTrack.CORE.Models
             {
                 if (value.Length != 11)
                     throw new Exception("Telefon numarası 11 haneli olmalıdır!!!");
-                if (value.All(char.IsDigit))
-                    throw new Exception("Telefon numarası rakamlardan oluşmalıdır.");
                 _phoneNumber = value;
             }
         }

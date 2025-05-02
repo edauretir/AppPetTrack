@@ -8,7 +8,7 @@ namespace AppPetTrack.REPO.Configs
     {
         public void Configure(EntityTypeBuilder<PetOwner> builder)
         {
-            builder.HasIndex(p => p.PhoneNumber).IsUnique();
+            
         }
     }
 

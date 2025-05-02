@@ -32,10 +32,8 @@ namespace AppPetTrack.REPO.UnitOfWork
         public IHealthRecordRepo HealthRecords => _healthRecordRepo.Value;
         public IPetOwnerRepo PetOwners => _petOwnerRepo.Value;
         public IPetRepo Pets => _petRepo.Value;
-        public ITrackerDeviceRepo TrackerDevicers => _trackerRepo.Value;
+        public ITrackerDeviceRepo TrackerDevices => _trackerRepo.Value;
         public IVetAppointmentRepo VetAppointments => _vetAppointmentRepo.Value;
-
-        public ITrackerDeviceRepo TrackerDevices => throw new NotImplementedException();
 
         public bool Save()
         {

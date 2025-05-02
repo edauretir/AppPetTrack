@@ -14,12 +14,12 @@ namespace AppPetTrack.SERVICE.Concretes
             _repo = repo;
         }
 
-        public void Add(DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime)
+        public void Add(int trackerId, DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime)
         {
             if(string.IsNullOrEmpty(activityDate.ToString()) || string.IsNullOrEmpty(dailyWalkTime.ToString()) || string.IsNullOrEmpty(dailyRunTime.ToString()) || string.IsNullOrEmpty(dailySleepTime.ToString()))
                 throw new ValidationException("ActivityDate, DailyWalkTime, DailyRunTime, DailySleepTime", "Verilen alanlardan biri boş veya geçersiz!");
 
-            _repo.ActivityLogs.Create(new ActivityLog(activityDate, dailyWalkTime, dailyRunTime, dailySleepTime));
+            _repo.ActivityLogs.Create(new ActivityLog(trackerId,activityDate, dailyWalkTime, dailyRunTime, dailySleepTime));
 
             if (!_repo.Save())
                 throw new Exception("Activity Log kayıt edilemedi!");

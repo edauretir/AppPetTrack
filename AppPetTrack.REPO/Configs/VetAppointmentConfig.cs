@@ -8,7 +8,7 @@ namespace AppPetTrack.REPO.Configs
     {
         public void Configure(EntityTypeBuilder<VetAppointment> builder)
         {
-            throw new NotImplementedException();
+           
         }
     }
 

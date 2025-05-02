@@ -8,7 +8,7 @@ namespace AppPetTrack.REPO.Configs
     {
         public void Configure(EntityTypeBuilder<ActivityLog> builder)
         {
-            throw new NotImplementedException();
+           
         }
     }
 

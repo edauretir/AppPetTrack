@@ -11,8 +11,9 @@ namespace AppPetTrack.CORE.Models
 
         public ActivityLog() { }
 
-        public ActivityLog(DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime)
+        public ActivityLog(int trackerId,DateTime activityDate, TimeSpan dailyWalkTime, TimeSpan dailyRunTime, TimeSpan dailySleepTime)
         {
+            TrackerDeviceId = trackerId;
             ActivityDate = activityDate;
             DailyWalkTime = dailyWalkTime;
             DailyRunTime = dailyRunTime;

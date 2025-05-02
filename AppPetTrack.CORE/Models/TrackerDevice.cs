@@ -9,8 +9,9 @@ namespace AppPetTrack.CORE.Models
 
         public TrackerDevice() { }
 
-        public TrackerDevice(DateTime loggedAt, string location)
+        public TrackerDevice(int perId,DateTime loggedAt, string location)
         {
+            PetId = perId;
             _loggedAt = loggedAt;
             _location = location;
         }

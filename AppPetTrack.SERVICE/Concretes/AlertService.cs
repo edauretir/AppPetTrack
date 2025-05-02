@@ -13,9 +13,9 @@ namespace AppPetTrack.SERVICE.Contracts
         {
             _repo = repo;
         }
-        public void Add(int petId, double bodyTempature, TimeSpan inactivity, string escape, double weight)
+        public void Add(int petId, double bodyTempature, TimeSpan inactivity, bool escape, double weight)
         {
-            if (string.IsNullOrEmpty(bodyTempature.ToString()) || string.IsNullOrEmpty(inactivity.ToString()) || string.IsNullOrEmpty(escape) || string.IsNullOrEmpty(weight.ToString()))
+            if (string.IsNullOrEmpty(bodyTempature.ToString()) || string.IsNullOrEmpty(inactivity.ToString())|| string.IsNullOrEmpty(weight.ToString()))
                 throw new ValidationException("BodyTempature, Inactivity , Escape, Weight", "Verilen alanlardan biri boş veya geçersiz!");
 
                 _repo.Alerts.Create(new Alert {PetId = petId, BodyTempature = bodyTempature, Inactivity = inactivity, Escape = escape, Weight = weight });
@@ -60,9 +60,9 @@ namespace AppPetTrack.SERVICE.Contracts
                 throw new Exception("Alert soft delete edilemedi");
         }
 
-        public void Update(int id, double bodyTempature, TimeSpan inactivity, string escape, double weight)
+        public void Update(int id, double bodyTempature, TimeSpan inactivity, bool escape, double weight)
         {
-            if (string.IsNullOrEmpty(bodyTempature.ToString()) || string.IsNullOrEmpty(inactivity.ToString()) || string.IsNullOrEmpty(escape) || string.IsNullOrEmpty(weight.ToString()))
+            if (string.IsNullOrEmpty(bodyTempature.ToString()) || string.IsNullOrEmpty(inactivity.ToString()) || string.IsNullOrEmpty(weight.ToString()))
                 throw new ValidationException("BodyTempature, Inactivity , Escape, Weight", "Verilen alanlardan biri boş veya geçersiz!");
 
             var alert = _repo.Alerts.GetById(id);
@@ -77,5 +77,16 @@ namespace AppPetTrack.SERVICE.Contracts
             if (!_repo.Save())
                 throw new Exception("Alert güncellenemedi!");
         }
+
+        //public async Task CheckAndSetEscapeAsync(int petId, double distance)
+        //{
+        //    if (distance > 500)
+        //        await _alertRepository.MarkEscapeAsync(petId, true);
+           
+        //    else
+        //        await _alertRepository.MarkEscapeAsync(petId, false);
+            
+        //}
+
     }
 }

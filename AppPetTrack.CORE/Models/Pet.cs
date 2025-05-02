@@ -35,7 +35,7 @@ namespace AppPetTrack.CORE.Models
             }
         }
 
-        public string VaccineInformation
+        public string? VaccineInformation
         {
             get { return _vaccineInformation; }
             set { _vaccineInformation = value; }
@@ -47,7 +47,7 @@ namespace AppPetTrack.CORE.Models
             set { _birthDate = value; }
         }
 
-        public string Breed
+        public string? Breed
         {
             get { return _breed; }
             set { _breed = ValidationHelper.SetData(value); }
@@ -59,23 +59,21 @@ namespace AppPetTrack.CORE.Models
             set { _species = value; }
         }
 
-        public string Name
+        public string? Name
         {
             get { return _name; }
             set { _name = ValidationHelper.SetData(value); }
         }
 
-        public Guid MicrochipNumber { get; private set; } = Guid.NewGuid();
+        //public Guid MicrochipNumber { get; private set; } = Guid.NewGuid();
 
         //Navigation Properties
         public int PetOwnerId { get; set; }
-        public int TrackerDeviceId { get; set; }
-        public int AlertId { get; set; }
-        public virtual Alert Alert { get; set; }//Bir hayvanın bir uyarısı olabilir.
-        public virtual PetOwner PetOwner { get; set; } //Bir hayvanın bir sahibi olabilir.
-        public virtual TrackerDevice TrackerDevice { get; set; }//Bir hayvanın bir takip cihazı olabilir.
-        public virtual ICollection<HealthRecord> HealthRecords { get; set; } = new List<HealthRecord>();//Bir hayvanın birden fazla sahibi olabilir.
-        public virtual ICollection<VetAppointment> VetAppointment { get; set; } = new List<VetAppointment>();//Birden fazla veteriner ziyareti
+        public virtual Alert? Alert { get; set; }//Bir hayvanın bir uyarısı olabilir.
+        public virtual PetOwner? PetOwner { get; set; } //Bir hayvanın bir sahibi olabilir.
+        public virtual TrackerDevice? TrackerDevice { get; set; }//Bir hayvanın bir takip cihazı olabilir.
+        public virtual ICollection<HealthRecord>? HealthRecords { get; set; } = new List<HealthRecord>();//Bir hayvanın birden fazla sahibi olabilir.
+        public virtual ICollection<VetAppointment>? VetAppointment { get; set; } = new List<VetAppointment>();//Birden fazla veteriner ziyareti
 
         public override string ToString()
         {

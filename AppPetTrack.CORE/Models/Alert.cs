@@ -7,12 +7,12 @@ namespace AppPetTrack.CORE.Models
     {
         private double _bodyTempature;
         private TimeSpan _inactivity;
-        private string _escape;
+        private bool _escape;
         private double _weight;
 
         public Alert() { }
 
-        public Alert(int petId,double bodyTemature, TimeSpan inactivity, string escape, double weight)
+        public Alert(int petId,double bodyTemature, TimeSpan inactivity, bool escape, double weight)
         {
             PetId = petId;
             BodyTempature = bodyTemature;
@@ -26,7 +26,7 @@ namespace AppPetTrack.CORE.Models
             get { return _weight; }
             set { _weight = ValidationHelper.ValidatePositiveDouble(value); }
         }
-        public string Escape
+        public bool Escape
         {
             get { return _escape; }
             set { _escape = value; }
